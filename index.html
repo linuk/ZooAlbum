@@ -1,0 +1,114 @@
+<!-- This is a first example of using a template -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>The Zoo</title>
+
+<!-- include our libraries and css files -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/handlebars-v3.0.3.js"></script>
+
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/AnimalsData.js"></script>
+	<script src="js/assignment.js"></script>
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+</head>
+<body>
+	<div class="container" >		
+		<div class="container-fluid" id="tabs-content"></div>
+		<div class="container-fluid" id="content"></div>
+	</div>
+	<div id="modal-container"></div>
+</body>
+	
+<!-- tabs template	 -->
+<script id="tabs-template" type="text/x-handlebars-template">
+	<!-- tabs content -->
+	<div class="page-title">
+		<h1>The Zoo</h1>
+		<div class="row">
+			<div class="navbar-header">
+			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+			        <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+			    </button>
+			</div>
+			<div class="col-md-8 col-md-offset-2 col-xs-12">
+				<div class="navbar-collapse collapse" id="navbar-collapse">
+					<ul class="nav nav-tabs head-menu">
+						<li class="js-tabs presentation active"><a href="#">All</a></li>
+						{{#each category}}
+						<li class="js-tabs presentation"><a href="#">{{name}}</a></li>
+						{{/each}}
+						<!-- TODO: search bar  -->
+						<!-- <li class="searchContainer presentation">
+							<input type="text" id="searchBox" placeholder="Search" class="form-control">
+						</li> -->
+					</ul>	
+				</div>	
+			</div>
+		</div>
+	</div>	
+	<!-- / tabs content -->
+</script>
+<!-- / tabs template	 -->
+
+<!-- album content template	 -->
+<script id="album-template" type="text/x-handlebars-template">
+	<!-- page content -->
+	{{#each category}}
+	<div class="row">
+		{{#each animals}}
+		<div class="col-md-offset-0 col-md-3 col-xs-12">
+			<div class="thumbnail" data-aminals-category="{{../name}}" data-aminals-category-index="{{@../index}}"  data-image-index="{{@index}}">
+				<div class="overlayContainer">
+					<img class="img-rounded img-responsive thumbnailImage" src="{{image2}}" alt="{{name}}" >
+					<div class="colorOverlay img-rounded">
+						<i class="colorOverlay__content fa fa-search-plus fa-4x" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="caption">
+					<h4 class="animalsName">{{name}}</h4>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+		</div>
+	{{/each}}
+	<!-- / page content -->
+</script>
+<!-- / album content template	 -->
+
+<!-- modal content template	 -->
+<script id="modal-template" type="text/x-handlebars-template">
+	<div class="modal fade" id="imageModal" tabindex="-1" role="dialog">
+	 	<div class="modal-dialog modal-lg" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		      	<h1>+ {{name}} +</h1>
+		      </div>
+		      <div class="modal-body">
+		      		<div class="row">
+		      			<div class="col-md-4">
+		      				<img class="thumbnailZoomIn " src="{{image1}}">
+		      			</div>
+		      			<div class="col-md-8">
+		      				<p class="description">{{description}}</p>
+		      			</div>
+		      		</div>
+				
+		      </div>
+		      <div class="modal-footer">
+		      	<button class="modal-close-btn btn btn-default js-close-modal">Close</button>
+		      </div>
+	    	</div>		
+		</div>
+	</div>
+</script>
+<!-- / modal content template	 -->
+</html>

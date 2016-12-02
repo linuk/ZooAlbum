@@ -1,0 +1,231 @@
+/*import google font */
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
+
+/* put your css code here */
+*,h1,h2,h3,h4{
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	text-transform: uppercase;
+	background: none;
+}
+
+body,.modal-content{
+	background-image: url('../imgs/cream_pixels.png') ;
+}
+
+h1{
+	font-size:4em;
+}
+
+h4{
+	color: #2A706B;
+}
+
+p,img.thumbnailZoomIn{
+	-webkit-column-rule: #2A706B;
+	-moz-column-rule: #2A706B;
+	-o-column-rule: #2A706B;
+	column-rule: #2A706B;
+	padding:1em;
+}
+
+.page-title h1{
+	padding: 0.5em 0;
+	font-weight: 100;
+	font-size: 7em;
+
+}
+
+.modal-header h1{
+	font-weight: 100;	
+	font-size: 4em;
+}
+
+.nav-tabs{
+	margin-bottom: 4em;
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+
+}
+
+.nav-tabs li{
+	float: none;
+	flex-grow: 1;
+	font-size: 0.9em;
+}
+
+.nav-tabs li a,h1{
+	color:#4ECDC4
+}
+
+.nav-tabs li.active a{
+	background-color: rgba(255,255,255,0.3);
+}
+
+.nav-tabs li.active a,
+.nav-tabs li.active a:hover{
+	color:#FF6B6B;
+	font-weight: 400;
+}
+
+.nav-tabs li a:hover{
+	background:#55E0D7;
+	color: #fff
+}
+
+.form-control{
+	width:150px;
+	float: right;
+}
+
+li.searchContainer{
+	/*display: none;*/
+}
+
+.nav-tabs li.active a,
+.nav-tabs li.active a:hover,
+.nav-tabs li a,
+.nav-tabs li a:hover,
+.thumbnail .colorOverlay,
+.thumbnail .colorOverlay:hover,
+.colorOverlay:hover .colorOverlay__content,
+.colorOverlay .colorOverlay__content,
+.overlayContainer:hover img,
+.overlayContainer img,
+.btn,.btn:hover,
+.animalsName,.animalsName:hover
+{
+	-webkit-transition:0.5s all ease-out;
+	-moz-transition:0.5s all ease-out;
+	-ms-transition:0.5s all ease-out;
+	-o-transition:0.5s all ease-out;
+	transition:0.5s all ease-out;
+}
+
+
+.thumbnail{
+	border: none;
+	cursor: pointer;
+}
+
+.thumbnail .overlayContainer{
+	position:relative;
+	overflow: hidden;
+	text-align: center;
+}
+
+.thumbnail .colorOverlay{
+	background: rgba(0,0,0,0);
+	width:100%;
+	height:100%;
+	position:absolute;
+	overflow:hidden;
+	top:0;
+	left:0;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.thumbnail:hover .colorOverlay{
+	background: rgba(0,0,0,0.3);
+}
+
+.colorOverlay__content{
+	color:#fff;
+	opacity:0;
+}
+
+.colorOverlay:hover .colorOverlay__content{
+	opacity: .9;
+}
+
+
+.thumbnail img{
+	object-fit: cover; /* Do not scale the image */
+	object-position: center;
+	height:300px;
+	min-width: 100%;
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+.overlayContainer:hover img{
+	-webkit-transform: scale(1.1,1.1);
+	-moz-transform: scale(1.1,1.1);
+	-ms-transform: scale(1.1,1.1);
+	-o-transform: scale(1.1,1.1);
+	transform: scale(1.1,1.1);
+
+	-webkit-filter: grayscale(0%);
+	-moz-filter: grayscale(0%);
+	-ms-filter: grayscale(0%);
+	-o-filter: grayscale(0%);
+	filter: grayscale(0%);
+}
+
+.animalsName:hover{
+	color: #4ECDC4;
+}
+
+.thumbnailZoomIn{
+	height:auto;
+	width:100%;
+}
+
+
+.modal-close-btn{
+	background: #4ECDC4;
+	color:#fff;
+	border: none;
+}
+
+.modal-close-btn:hover{
+	background: #57E5DC;
+	color:#fff;
+}
+
+i.fa-bars{
+	color: #4ECDC4;
+}
+
+.red{
+	background: red;
+}
+
+
+/*with narrow screen*/
+@media all and (max-width:768px ){
+
+	/*change tabs from inline to stack*/
+	.nav-tabs{
+		display: block;
+	}	
+	.page-title h1{
+		font-size: 4em;
+	}
+	.modal-header h1{
+		font-size: 3em;
+	}
+	.animalsName{
+		font-size: 2em;
+	}
+	.nav-tabs li a{
+		font-size: 1.5em;	
+	}
+	.form-control{
+		width: 100%;
+	}
+	li.searchContainer{
+		display: inline;
+	}
+	.modal-close-btn{
+		width: 100%;
+	}
+}
